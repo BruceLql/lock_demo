@@ -30,6 +30,12 @@ dependencies {
 //	runtimeOnly("mysql:mysql-connector-java")
 //	 redisson
 	implementation ("org.redisson:redisson:3.13.0")
+	// https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper
+	implementation("org.apache.zookeeper:zookeeper:3.6.1"){
+		exclude( "org.slf4j", "slf4j-api")//by both name and group
+		exclude( "org.slf4j", "slf4j-log4j12")//by both name and group
+		exclude( "log4j", "log4j")//by both name and group
+	}
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
